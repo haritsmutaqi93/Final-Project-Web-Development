@@ -352,7 +352,7 @@ async function loadFacility(){
 
     const response =
     await fetch(
-        `http://localhost:5000/api/facilities/${facilityId}`
+        `/api/facilities/${facilityId}`
     );
 
     const facility =
@@ -521,7 +521,7 @@ document
 
         const response =
         await fetch(
-            "http://localhost:5000/api/bookings",
+            "/api/bookings",
             {
                 method:"POST",
 
