@@ -1,0 +1,165 @@
+.dashboard-header{
+    max-width:1400px;
+    margin:auto;
+    padding:100px 80px 50px;
+}
+
+.dashboard-header span{
+    color:#d8ff3e;
+    font-weight:700;
+}
+
+.dashboard-header h1{
+    font-size:60px;
+    margin:15px 0;
+}
+
+.dashboard-header p{
+    color:#9f9f9f;
+}
+
+.dashboard-stats{
+    max-width:1400px;
+    margin:auto;
+    padding:0 80px 60px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat-card{
+    background:#111;
+    border:1px solid #222;
+    border-radius:25px;
+    padding:30px;
+
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+    border-color:#d8ff3e;
+}
+
+.stat-card i{
+    font-size:28px;
+    color:#d8ff3e;
+    margin-bottom:15px;
+}
+
+.stat-card h2{
+    margin-bottom:8px;
+}
+
+.stat-card p{
+    color:#9f9f9f;
+}
+
+.dashboard-main{
+    max-width:1400px;
+    margin:auto;
+    padding:0 80px 100px;
+
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+}
+
+.booking-card,
+.quick-actions{
+    background:#111;
+    border:1px solid #222;
+    border-radius:25px;
+    padding:30px;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:25px;
+}
+
+.section-title a{
+    color:#d8ff3e;
+    text-decoration:none;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    text-align:left;
+    padding:15px;
+    border-bottom:1px solid #222;
+}
+
+td{
+    padding:15px;
+    border-bottom:1px solid #222;
+}
+
+.upcoming{
+    color:#d8ff3e;
+    font-weight:600;
+}
+
+.completed{
+    color:#8f8f8f;
+}
+
+.quick-actions h2{
+    margin-bottom:25px;
+}
+
+.quick-actions a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    background:#0a0a0a;
+
+    padding:18px;
+    margin-bottom:15px;
+
+    border-radius:15px;
+
+    color:white;
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.quick-actions a:hover{
+    border:1px solid #d8ff3e;
+}
+
+.quick-actions i{
+    color:#d8ff3e;
+}
+
+@media(max-width:992px){
+
+    .dashboard-header{
+        padding:80px 20px 40px;
+    }
+
+    .dashboard-header h1{
+        font-size:42px;
+    }
+
+    .dashboard-stats{
+        grid-template-columns:repeat(2,1fr);
+        padding:0 20px 40px;
+    }
+
+    .dashboard-main{
+        grid-template-columns:1fr;
+        padding:0 20px 80px;
+    }
+
+}

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Arenangor</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/dashboard.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>A</span>RENANGOR
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="facilities.html">Facilities</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-buttons" id="navButtons">
+
+            <a href="login.html" class="login-btn">
+                Log In
+            </a>
+
+            <a href="register.html" class="signup-btn">
+                Sign Up
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <span>WELCOME</span>
+
+            <h1 id="welcomeName">
+                Loading...
+            </h1>
+
+            <p>
+                Manage your bookings, membership, and activities in one place.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="dashboard-stats">
+
+        <div class="stat-card">
+
+            <i class="fas fa-calendar-check"></i>
+
+            <h2 id="upcomingCount">0</h2>
+
+            <p>Upcoming Bookings</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fas fa-check-circle"></i>
+
+            <h2>0</h2>
+
+            <p>Completed Bookings</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fas fa-crown"></i>
+
+            <h2>Student</h2>
+
+            <p>Membership Status</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fas fa-star"></i>
+
+            <h2>1240</h2>
+
+            <p>Reward Points</p>
+
+        </div>
+
+    </section>
+
+
+    <section class="dashboard-main">
+
+        <div class="booking-card">
+
+            <div class="section-title">
+
+                <h2>Recent Bookings</h2>
+
+                <a href="my-bookings.html">
+                    View All
+                </a>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Facility</th>
+                        <th>Date</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="recentBookings">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+            <h2>
+                Quick Actions
+            </h2>
+
+            <a href="facilities.html">
+                <i class="fas fa-calendar-plus"></i>
+                Book Facility
+            </a>
+
+            <a href="events.html">
+                <i class="fas fa-trophy"></i>
+                Join Event
+            </a>
+
+            <a href="membership.html">
+                <i class="fas fa-crown"></i>
+                Upgrade Membership
+            </a>
+
+            <a href="profile.html">
+                <i class="fas fa-user"></i>
+                Edit Profile
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>ARENANGOR</h3>
+
+            <p>
+                The all-in-one sports hub
+                in Jatinangor.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h4>Quick Links</h4>
+
+            <ul>
+
+                <li>Home</li>
+                <li>Facilities</li>
+                <li>Events</li>
+                <li>Membership</li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <ul>
+
+                <li>Jatinangor, Sumedang</li>
+                <li>+62 812 3456 7890</li>
+                <li>info@arenangor.com</li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h4>Follow Us</h4>
+
+            <ul>
+
+                <li>Instagram</li>
+                <li>TikTok</li>
+                <li>LinkedIn</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 Arenangor. All Rights Reserved.
+
+    </div>
+
+    </footer>
+
+    <script>
+
+const user =
+JSON.parse(localStorage.getItem("user"));
+
+if(user){
+
+    document.getElementById("navButtons").innerHTML = `
+
+        <a href="dashboard.html"
+        class="login-btn">
+
+            Dashboard
+
+        </a>
+
+        <button
+        onclick="logout()"
+        class="signup-btn">
+
+            Logout
+
+        </button>
+
+    `;
+}
+
+function logout(){
+
+    localStorage.removeItem("user");
+
+    window.location.href = "index.html";
+
+}
+
+const currentUser =
+JSON.parse(
+    localStorage.getItem("user")
+);
+
+if(!user){
+
+    window.location.href =
+    "login.html";
+
+}
+
+document
+.getElementById("welcomeName")
+.innerText =
+user.full_name + " 👋";
+
+async function loadDashboard(){
+
+    try{
+
+        const response =
+        await fetch(
+            `http://localhost:5000/api/my-bookings/${user.user_id}`
+        );
+
+        const bookings =
+        await response.json();
+
+        const upcoming =
+        bookings.filter(
+            b =>
+            b.booking_status ===
+            "Upcoming"
+        );
+
+        document
+        .getElementById("upcomingCount")
+        .innerText =
+        upcoming.length;
+
+        const table =
+        document
+        .getElementById(
+            "recentBookings"
+        );
+
+        table.innerHTML = "";
+
+        bookings
+        .slice(0,5)
+        .forEach(booking=>{
+
+            table.innerHTML += `
+
+                <tr>
+
+                    <td>
+                        ${booking.facility_name}
+                    </td>
+
+                    <td>
+                        ${new Date(
+                            booking.booking_date
+                        ).toLocaleDateString(
+                            "en-GB",
+                            {
+                                day:"2-digit",
+                                month:"long",
+                                year:"numeric"
+                            }
+                        )}
+                    </td>
+                    
+                    <td>
+
+                        <span class="${
+                            booking.booking_status
+                            === "Upcoming"
+                            ? "upcoming"
+                            : "completed"
+                        }">
+
+                            ${booking.booking_status}
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    }
+
+    catch(err){
+
+        console.log(err);
+
+    }
+
+}
+
+loadDashboard();
+
+</script>
+
+</body>
+
+</html>

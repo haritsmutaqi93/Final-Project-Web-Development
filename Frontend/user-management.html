@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Management | Arenangor</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/user-management.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ADMIN NAVBAR -->
+
+
+    <section class="page-header">
+
+        <span>ADMIN PANEL</span>
+
+        <h1>User Management</h1>
+
+        <p>
+            Manage registered users and membership information.
+        </p>
+
+    </section>
+
+
+    <section class="table-section">
+
+        <div class="table-card">
+
+            <div class="table-top">
+
+                <input
+                    id="searchUser"
+                    type="text"
+                    placeholder="Search users..."
+                    onkeyup="loadUsers()">
+
+                <button onclick="addUser()">
+                    + Add User
+                </button>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Membership</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="userTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <script>
+
+loadUsers();
+
+async function loadUsers(){
+
+    const response =
+    await fetch(
+        "http://localhost:5000/api/users"
+    );
+
+    const users =
+    await response.json();
+
+    const keyword =
+    document
+    .getElementById("searchUser")
+    .value
+    .toLowerCase();
+
+    let html = "";
+
+    users.forEach(user=>{
+
+        if(
+            !user.full_name
+            .toLowerCase()
+            .includes(keyword)
+        ){
+            return;
+        }
+
+        html += `
+
+        <tr>
+
+            <td>${user.user_id}</td>
+
+            <td>${user.full_name}</td>
+
+            <td>${user.email}</td>
+
+            <td>Student</td>
+
+            <td>
+
+                <span class="active">
+
+                Active
+
+                </span>
+
+            </td>
+
+            <td>
+
+                <button
+                class="edit-btn"
+                onclick="
+                editUser(
+                ${user.user_id}
+                )">
+
+                Edit
+
+                </button>
+
+                <button
+                class="delete-btn"
+                onclick="
+                deleteUser(
+                ${user.user_id}
+                )">
+
+                Delete
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+    document
+    .getElementById("userTable")
+    .innerHTML = html;
+
+}
+
+async function addUser(){
+
+    const name =
+    prompt("Full Name");
+
+    const email =
+    prompt("Email");
+
+    if(!name || !email){
+        return;
+    }
+
+    await fetch(
+
+        "http://localhost:5000/api/users",
+
+        {
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
+
+            body:JSON.stringify({
+
+                full_name:name,
+
+                email:email,
+
+                password:"123456",
+
+                phone_number:"08123456789"
+
+            })
+
+        }
+
+    );
+
+    loadUsers();
+
+}
+
+async function editUser(id){
+
+    const name =
+    prompt("New Name");
+
+    if(!name){
+        return;
+    }
+
+    await fetch(
+
+        `http://localhost:5000/api/users/${id}`,
+
+        {
+
+            method:"PUT",
+
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
+
+            body:JSON.stringify({
+
+                full_name:name
+
+            })
+
+        }
+
+    );
+
+    loadUsers();
+
+}
+
+async function deleteUser(id){
+
+    await fetch(
+
+        `http://localhost:5000/api/users/${id}`,
+
+        {
+
+            method:"DELETE"
+
+        }
+
+    );
+
+    loadUsers();
+
+}
+
+</script>
+
+</body>
+
+</html>

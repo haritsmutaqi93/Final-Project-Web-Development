@@ -1,0 +1,139 @@
+.booking-header{
+    max-width:1400px;
+    margin:auto;
+    padding:100px 80px 50px;
+}
+
+.booking-header span{
+    color:#d8ff3e;
+    font-weight:700;
+}
+
+.booking-header h1{
+    font-size:60px;
+    margin:15px 0;
+}
+
+.booking-header p{
+    color:#9f9f9f;
+}
+
+.booking-details-container{
+    max-width:1400px;
+    margin:auto;
+
+    padding:0 80px 60px;
+
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+}
+
+.booking-info-card,
+.booking-summary-card{
+    background:#111;
+    border:1px solid #222;
+    border-radius:25px;
+    padding:35px;
+}
+
+.booking-info-card h2,
+.booking-summary-card h2{
+    margin-bottom:30px;
+}
+
+.info-row,
+.summary-item{
+    display:flex;
+    justify-content:space-between;
+    padding:18px 0;
+    border-bottom:1px solid #222;
+}
+
+.info-row span,
+.summary-item span{
+    color:#9f9f9f;
+}
+
+.upcoming{
+    color:#d8ff3e;
+}
+
+.total{
+    font-size:18px;
+    font-weight:700;
+}
+
+.download-btn,
+.cancel-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+
+    margin-top:20px;
+
+    cursor:pointer;
+    font-weight:700;
+}
+
+.download-btn{
+    background:#d8ff3e;
+    color:black;
+}
+
+.cancel-btn{
+    background:#1a1a1a;
+    color:white;
+}
+
+.timeline-section{
+    max-width:1400px;
+    margin:auto;
+
+    padding:0 80px 100px;
+}
+
+.timeline-card{
+    background:#111;
+    border:1px solid #222;
+    border-radius:25px;
+    padding:35px;
+}
+
+.timeline-card h2{
+    margin-bottom:30px;
+}
+
+.timeline-item{
+    padding:18px;
+    margin-bottom:15px;
+
+    border-radius:12px;
+    background:#1a1a1a;
+}
+
+.timeline-item.active{
+    border-left:4px solid #d8ff3e;
+}
+
+@media(max-width:992px){
+
+    .booking-header{
+        padding:80px 20px 40px;
+    }
+
+    .booking-header h1{
+        font-size:42px;
+    }
+
+    .booking-details-container{
+        grid-template-columns:1fr;
+        padding:0 20px 40px;
+    }
+
+    .timeline-section{
+        padding:0 20px 80px;
+    }
+
+}

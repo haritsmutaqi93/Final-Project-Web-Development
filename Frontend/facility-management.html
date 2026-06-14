@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Facility Management | Arenangor</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/facility-management.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ADMIN NAVBAR -->
+
+
+    <section class="page-header">
+
+        <span>ADMIN PANEL</span>
+
+        <h1>Facility Management</h1>
+
+        <p>
+            Manage all sports facilities available on the platform.
+        </p>
+
+    </section>
+
+
+    <section class="table-section">
+
+        <div class="table-card">
+
+            <div class="table-top">
+
+                    <input
+                    id="facilityName"
+                    type="text"
+                    placeholder="Facility Name">
+
+                    <input
+                    id="category"
+                    type="text"
+                    placeholder="Category">
+
+                    <input
+                    id="price"
+                    type="number"
+                    placeholder="Price">
+
+                    <button onclick="addFacility()">
+                    + Add Facility
+                    </button>
+
+                    <input
+                    type="text"
+                    placeholder="Search facilities...">
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Facility Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="facilityTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <script>
+
+loadFacilities();
+
+function loadFacilities(){
+
+fetch(
+"http://localhost:5000/api/facilities"
+)
+.then(res=>res.json())
+.then(data=>{
+
+let html = "";
+
+data.forEach(facility=>{
+
+html += `
+<tr>
+
+<td>${facility.facility_id}</td>
+
+<td>${facility.facility_name}</td>
+
+<td>${facility.category}</td>
+
+<td>Rp ${facility.price_per_hour}</td>
+
+<td>${facility.status}</td>
+
+<td>
+
+<button
+onclick="deleteFacility(${facility.facility_id})"
+class="delete-btn">
+Delete
+</button>
+
+</td>
+
+</tr>
+`;
+
+});
+
+document.getElementById(
+"facilityTable"
+).innerHTML = html;
+
+});
+
+}
+
+async function addFacility(){
+
+await fetch(
+"http://localhost:5000/api/facilities",
+{
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+facility_name:
+document.getElementById("facilityName").value,
+
+category:
+document.getElementById("category").value,
+
+price_per_hour:
+document.getElementById("price").value
+
+})
+
+}
+);
+
+loadFacilities();
+
+}
+
+async function deleteFacility(id){
+
+if(!confirm("Delete facility?")){
+return;
+}
+
+await fetch(
+`http://localhost:5000/api/facilities/${id}`,
+{
+method:"DELETE"
+}
+);
+
+loadFacilities();
+
+}
+
+</script>
+
+</body>
+
+</html>

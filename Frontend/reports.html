@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | Arenangor</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/reports.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ADMIN NAVBAR -->
+
+
+    <section class="page-header">
+
+        <span>ADMIN PANEL</span>
+
+        <h1>Reports & Analytics</h1>
+
+        <p>
+            Analyze bookings, facilities utilization and platform performance.
+        </p>
+
+    </section>
+
+
+    <section class="summary-grid">
+
+        <div class="summary-card">
+
+            <i class="fas fa-money-bill-wave"></i>
+
+            <h2 id="totalRevenue">0</h2>
+
+            <p>Monthly Revenue</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <i class="fas fa-calendar-check"></i>
+
+            <h2 id="totalBookings">0</h2>
+
+            <p>Total Bookings</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <i class="fas fa-users"></i>
+
+            <h2 id="totalUsers">0</h2>
+
+            <p>Registered Users</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <i class="fas fa-chart-line"></i>
+
+            <h2 id="utilization">0%</h2>
+
+            <p>Facility Utilization</p>
+
+        </div>
+
+    </section>
+
+
+    <section class="report-cards">
+
+        <div class="report-card">
+
+            <h2>
+                Top Facilities
+            </h2>
+
+            <ul>
+
+                <li>
+                    Futsal Arena A
+                    <span>145 bookings</span>
+                </li>
+
+                <li>
+                    Basketball Court
+                    <span>112 bookings</span>
+                </li>
+
+                <li>
+                    Badminton Arena
+                    <span>97 bookings</span>
+                </li>
+
+                <li>
+                    Padel Court
+                    <span>72 bookings</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h2>
+                Revenue Breakdown
+            </h2>
+
+            <ul>
+
+                <li>
+                    Facility Rentals
+                    <span>Rp 30.2M</span>
+                </li>
+
+                <li>
+                    Memberships
+                    <span>Rp 8.5M</span>
+                </li>
+
+                <li>
+                    Events
+                    <span>Rp 3.8M</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <section class="report-table">
+
+        <div class="table-card">
+
+            <div class="table-header">
+
+                <h2>
+                    Monthly Performance
+                </h2>
+
+                <button onclick="exportPDF()">
+                    Export PDF
+                </button>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Month</th>
+                        <th>Bookings</th>
+                        <th>Revenue</th>
+                        <th>Users</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>January</td>
+                        <td>325</td>
+                        <td>Rp 31M</td>
+                        <td>874</td>
+                    </tr>
+
+                    <tr>
+                        <td>February</td>
+                        <td>349</td>
+                        <td>Rp 34M</td>
+                        <td>951</td>
+                    </tr>
+
+                    <tr>
+                        <td>March</td>
+                        <td>378</td>
+                        <td>Rp 36M</td>
+                        <td>1,023</td>
+                    </tr>
+
+                    <tr>
+                        <td>April</td>
+                        <td>401</td>
+                        <td>Rp 39M</td>
+                        <td>1,132</td>
+                    </tr>
+
+                    <tr>
+                        <td>May</td>
+                        <td>426</td>
+                        <td>Rp 42.5M</td>
+                        <td>1,254</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <script>
+
+loadReport();
+
+async function loadReport(){
+
+    const response =
+    await fetch(
+        "http://localhost:5000/api/reports"
+    );
+
+    const data =
+    await response.json();
+
+    document.getElementById(
+        "totalRevenue"
+    ).innerText =
+    "Rp " +
+    Number(data.totalRevenue)
+    .toLocaleString("id-ID");
+
+    document.getElementById(
+        "totalBookings"
+    ).innerText =
+    data.totalBookings;
+
+    document.getElementById(
+        "totalUsers"
+    ).innerText =
+    data.totalUsers;
+
+    document.getElementById(
+        "utilization"
+    ).innerText =
+    data.utilization + "%";
+
+}
+
+</script>
+
+<script>
+
+function exportPDF(){
+
+    const element =
+    document.body;
+
+    html2pdf()
+    .from(element)
+    .save("Arenangor_Report.pdf");
+
+}
+
+</script>
+
+</body>
+
+</html>

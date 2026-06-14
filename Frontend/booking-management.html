@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Management | Arenangor</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/booking-management.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ADMIN NAVBAR -->
+
+
+    <section class="page-header">
+
+        <span>ADMIN PANEL</span>
+
+        <h1>Booking Management</h1>
+
+        <p>
+            Monitor, approve and manage all facility reservations.
+        </p>
+
+    </section>
+
+
+    <section class="table-section">
+
+        <div class="table-card">
+
+            <div class="table-top">
+
+                <input
+                    id="searchBooking"
+                    type="text"
+                    placeholder="Search bookings..."
+                    onkeyup="loadBookings()">
+
+                <select id="statusFilter" onchange="loadBookings()">
+
+                </select>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Facility</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="bookingTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <script>
+
+loadBookings();
+
+async function loadBookings(){
+
+    const response =
+    await fetch(
+        "http://localhost:5000/api/bookings"
+    );
+
+    const bookings =
+    await response.json();
+
+    let html = "";
+
+    bookings.forEach(booking=>{
+
+        html += `
+
+        <tr>
+
+            <td>${booking.booking_id}</td>
+
+            <td>${booking.full_name}</td>
+
+            <td>${booking.facility_name}</td>
+
+            <td>
+                ${new Date(
+                    booking.booking_date
+                ).toLocaleDateString(
+                    "en-GB",
+                    {
+                        day:"2-digit",
+                        month:"short",
+                        year:"numeric"
+                    }
+                )}
+            </td>
+
+            <td>
+                <span>
+                    ${booking.booking_status}
+                </span>
+            </td>
+
+            <td>
+
+                <button
+                class="approve-btn"
+                onclick="
+                updateBooking(
+                    ${booking.booking_id},
+                    'Approved'
+                )">
+
+                    Approve
+
+                </button>
+
+                <button
+                class="reject-btn"
+                onclick="
+                updateBooking(
+                    ${booking.booking_id},
+                    'Cancelled'
+                )">
+
+                    Reject
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+    document
+    .getElementById("bookingTable")
+    .innerHTML = html;
+
+}
+
+async function updateBooking(
+    bookingId,
+    status
+){
+
+    await fetch(
+
+        `http://localhost:5000/api/bookings/${bookingId}`,
+
+        {
+
+            method:"PUT",
+
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
+
+            body:JSON.stringify({
+                booking_status:status
+            })
+
+        }
+
+    );
+
+    loadBookings();
+
+}
+
+</script>
+
+</body>
+
+</html>

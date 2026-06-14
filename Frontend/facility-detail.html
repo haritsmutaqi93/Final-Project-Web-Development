@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Facility Detail | Arenangor</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/facility-detail.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>A</span>RENANGOR
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="facilities.html">Facilities</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-buttons" id="navButtons">
+
+            <a href="login.html" class="login-btn">
+                Log In
+            </a>
+
+            <a href="register.html" class="signup-btn">
+                Sign Up
+            </a>
+
+        </div>
+
+    </nav>
+
+    <section class="facility-detail">
+
+        <div class="facility-header">
+
+            <div class="facility-image">
+
+                <img
+                    id="facilityImage"
+                    src=""
+                    alt="">
+
+            </div>
+
+            <div class="facility-info">
+
+                <span class="facility-tag" id="facilityCategory">
+                    Loading...
+                </span>
+
+                <h1 id="facilityName">
+                    Loading...
+                </h1>
+
+                <div class="facility-rating">
+
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+
+                    <span>4.9 (127 Reviews)</span>
+
+                </div>
+
+                <p id="facilityDescription">
+                    Loading...
+                </p>
+
+                <div class="price-box">
+
+                    <span>Starting From</span>
+
+                    <h2 id="facilityPrice">
+                        Loading...
+                    </h2>
+
+                </div>
+
+                <a href="#booking" class="book-btn">
+                    Book Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="facility-features">
+
+        <h2>Facility Features</h2>
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <i class="fas fa-lightbulb"></i>
+                LED Lighting
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-wifi"></i>
+                Free WiFi
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-car"></i>
+                Parking Area
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-couch"></i>
+                Waiting Lounge
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-bottle-water"></i>
+                Refreshment Area
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-flag"></i>
+                Locker Room
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="gallery-section">
+
+        <h2>Gallery</h2>
+
+        <div class="gallery-grid">
+
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200">
+
+            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200">
+
+            <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1200">
+
+            <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?q=80&w=1200">
+
+        </div>
+
+    </section>
+
+    <section class="booking-section" id="booking">
+
+        <div class="booking-form">
+
+            <h2>Select Booking Schedule</h2>
+
+            <div class="form-group">
+
+                <label>Booking Date</label>
+
+                <input type="date" id="bookingDate" value="2026-06-20">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Time Slot</label>
+
+                <select id="timeSlot">
+
+                    <option>01:00</option>
+                    <option>02:00</option>
+                    <option>03:00</option>
+                    <option>04:00</option>
+                    <option>05:00</option>
+                    <option>06:00</option>
+                    <option>07:00</option>
+                    <option>08:00</option>
+                    <option>09:00</option>
+                    <option>10:00</option>
+                    <option>11:00</option>
+                    <option>12:00</option>
+                    <option>13:00</option>
+                    <option>14:00</option>
+                    <option>15:00</option>
+                    <option>16:00</option>
+                    <option>17:00</option>
+                    <option>18:00</option>
+                    <option>19:00</option>
+                    <option>20:00</option>
+                    <option>21:00</option>
+                    <option>22:00</option>
+                    <option>23:00</option>
+                    <option>00:00</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Duration</label>
+
+                <select id="duration">
+
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="booking-summary">
+
+            <h2>Booking Summary</h2>
+
+            <div class="summary-item">
+                <span>Facility</span>
+                <span id="summaryFacility">Loading...</span>
+            </div>
+
+            <div class="summary-item">
+                <span>Duration</span>
+                <span id="summaryDuration">1 Hour</span>
+            </div>
+
+            <div class="summary-item">
+                <span>Membership Discount</span>
+                <span>0</span>
+            </div>
+
+            <div class="summary-total">
+
+                <span>Total Price</span>
+
+                <h3 id="totalPrice">Rp 0</h3>
+
+            </div>
+
+            <button id="confirmBooking">
+                Confirm Booking
+            </button>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>ARENANGOR</h3>
+
+            <p>
+                The all-in-one sports hub
+                in Jatinangor.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h4>Quick Links</h4>
+
+            <ul>
+
+                <li>Home</li>
+                <li>Facilities</li>
+                <li>Events</li>
+                <li>Membership</li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <ul>
+
+                <li>Jatinangor, Sumedang</li>
+                <li>+62 812 3456 7890</li>
+                <li>info@arenangor.com</li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h4>Follow Us</h4>
+
+            <ul>
+
+                <li>Instagram</li>
+                <li>TikTok</li>
+                <li>LinkedIn</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 Arenangor. All Rights Reserved.
+
+    </div>
+
+    </footer>
+
+    <script>
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const facilityId =
+params.get("id");
+
+console.log(facilityId);
+
+let facilityPrice = 0;
+
+async function loadFacility(){
+
+    const response =
+    await fetch(
+        `http://localhost:5000/api/facilities/${facilityId}`
+    );
+
+    const facility =
+    await response.json();
+
+    facilityPrice =
+    Number(
+        facility.price_per_hour
+    );
+
+    // Nama
+
+    document
+    .getElementById("facilityName")
+    .innerText =
+    facility.facility_name;
+
+    // Harga
+
+    document
+    .getElementById("facilityPrice")
+    .innerHTML =
+    `Rp ${facilityPrice.toLocaleString("id-ID")}
+    <small>/hour</small>`;
+
+    // Category
+
+    document
+    .querySelector(".facility-tag")
+    .innerText =
+    facility.category.toUpperCase();
+
+    // Description
+
+    document
+    .querySelector(".facility-info p")
+    .innerText =
+    facility.description;
+
+    // Booking Summary Facility Name
+
+    document
+    .querySelector(".summary-item span:last-child")
+    .innerText =
+    facility.facility_name;
+
+    // Dynamic Image
+
+    const facilityImages = {
+
+        "Futsal":
+        "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1400",
+
+        "Basketball":
+        "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1400",
+
+        "Badminton":
+        "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1400",
+
+        "Fitness":
+        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1400",
+
+        "Gym":
+        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1400",
+
+        "Padel":
+        "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1400",
+
+        "Tennis":
+        "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?q=80&w=1400"
+
+    };
+
+    document
+    .querySelector(".facility-image img")
+    .src =
+    facilityImages[
+        facility.category
+    ];
+
+    document
+    .querySelector(".facility-image img")
+    .alt =
+    facility.facility_name;
+
+    calculatePrice();
+
+}
+
+function calculatePrice(){
+
+    const duration =
+    parseInt(
+        document
+        .getElementById("duration")
+        .value
+    );
+
+    const total =
+    facilityPrice * duration;
+
+    document
+    .getElementById("summaryDuration")
+    .innerText =
+    duration + " Hours";
+
+    document
+    .getElementById("totalPrice")
+    .innerText =
+    "Rp " +
+    total.toLocaleString("id-ID");
+
+}
+
+document
+.getElementById("duration")
+.addEventListener(
+    "change",
+    calculatePrice
+);
+
+loadFacility();
+
+document
+.getElementById("confirmBooking")
+.addEventListener("click", async () => {
+
+    const user =
+        JSON.parse(
+            localStorage.getItem("user")
+        );
+
+    if(!user){
+        alert("Please login first");
+        return;
+    }
+
+    const bookingDate =
+        document.getElementById("bookingDate").value;
+
+    const timeSlot =
+        document.getElementById("timeSlot").value;
+
+    const duration =
+        document.getElementById("duration").value;
+
+    const startTime = timeSlot;
+
+    const durationHours =
+    parseInt(duration);
+
+    const startHour =
+    parseInt(
+        timeSlot.split(":")[0]
+    );
+
+    const endHour =
+    (startHour + durationHours) % 24;
+
+    const endTime =
+    String(endHour)
+    .padStart(2, "0")
+    + ":00";
+
+    try{
+
+        const response =
+        await fetch(
+            "http://localhost:5000/api/bookings",
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+
+                    user_id:user.user_id,
+
+                    facility_id:facilityId,
+
+                    booking_date:bookingDate,
+
+                    start_time:startTime,
+
+                    end_time:endTime,
+
+                    total_price:
+                    facilityPrice *
+                    parseInt(
+                    document
+                    .getElementById("duration")
+                    .value
+                    ),
+
+                    booking_status:"Upcoming"
+
+                })
+
+            }
+        );
+
+        const data =
+            await response.json();
+
+        alert(data.message);
+
+    }catch(err){
+
+        console.log(err);
+
+        alert("Booking Failed");
+
+    }
+
+});
+
+</script>
+
+    <script>
+
+const user =
+JSON.parse(localStorage.getItem("user"));
+
+if(user){
+
+    document.getElementById("navButtons").innerHTML = `
+
+        <a href="dashboard.html"
+        class="login-btn">
+
+            Dashboard
+
+        </a>
+
+        <button
+        onclick="logout()"
+        class="signup-btn">
+
+            Logout
+
+        </button>
+
+    `;
+}
+
+function logout(){
+
+    localStorage.removeItem("user");
+
+    window.location.href =
+    "index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

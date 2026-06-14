@@ -1,0 +1,164 @@
+.about-hero{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+    padding:120px 40px 100px;
+}
+
+.about-hero span{
+    color:#d8ff3e;
+    font-weight:700;
+}
+
+.about-hero h1{
+    font-size:72px;
+    margin:20px 0;
+}
+
+.about-hero p{
+    max-width:700px;
+    margin:auto;
+    color:#9f9f9f;
+    line-height:1.8;
+}
+
+.story-section{
+    max-width:1400px;
+    margin:auto;
+    padding:0 80px 120px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.story-image img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:30px;
+}
+
+.story-content span{
+    color:#d8ff3e;
+}
+
+.story-content h2{
+    font-size:52px;
+    margin:20px 0;
+}
+
+.story-content p{
+    color:#9f9f9f;
+    line-height:1.8;
+}
+
+.vision-mission{
+    max-width:1400px;
+    margin:auto;
+    padding:0 80px 120px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.vision-card{
+    background:#111;
+    border:1px solid #222;
+    border-radius:30px;
+    padding:40px;
+}
+
+.vision-card i{
+    color:#d8ff3e;
+    font-size:36px;
+    margin-bottom:20px;
+}
+
+.why-us{
+    max-width:1400px;
+    margin:auto;
+    padding:0 80px 120px;
+}
+
+.why-us h2{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.why-card{
+    background:#111;
+    border:1px solid #222;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+
+    transition:.3s;
+}
+
+.why-card:hover{
+    border-color:#d8ff3e;
+    transform:translateY(-10px);
+}
+
+.why-card i{
+    color:#d8ff3e;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.stats-section{
+    max-width:1400px;
+    margin:auto;
+    padding:0 80px 120px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat-card{
+    background:#111;
+    border-radius:25px;
+    padding:40px;
+}
+
+.stat-card h2{
+    color:#d8ff3e;
+    font-size:56px;
+}
+
+.about-cta{
+    padding:0 80px 80px;
+}
+
+.cta-box{
+    background:#d8ff3e;
+    border-radius:25px;
+    padding:50px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cta-box h2,
+.cta-box p{
+    color:black;
+}
+
+.cta-box a{
+    background:black;
+    color:white;
+    text-decoration:none;
+    padding:18px 30px;
+    border-radius:12px;
+}

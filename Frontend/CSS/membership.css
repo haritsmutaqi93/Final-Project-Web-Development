@@ -1,0 +1,225 @@
+.membership-hero{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+    padding:120px 40px 100px;
+}
+
+.membership-hero span{
+    color:#d8ff3e;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.membership-hero h1{
+    font-size:72px;
+    line-height:1.1;
+    margin:20px 0;
+}
+
+.membership-hero p{
+    color:#9f9f9f;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.benefits-section{
+    max-width:1400px;
+    margin:auto;
+    padding:0 80px 120px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.benefit-card{
+    background:#111;
+    border:1px solid #222;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+}
+
+.benefit-card i{
+    color:#d8ff3e;
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.benefit-card h3{
+    margin-bottom:15px;
+}
+
+.benefit-card p{
+    color:#9f9f9f;
+}
+
+.pricing-section{
+    max-width:1400px;
+    margin:auto;
+    padding:0 80px 120px;
+}
+
+.pricing-section h2{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.pricing-card{
+    background:#111;
+    border:1px solid #222;
+    border-radius:30px;
+    padding:40px;
+    position:relative;
+
+    transition:all .3s ease;
+    cursor:pointer;
+}
+
+.pricing-card:hover{
+    transform:translateY(-12px);
+    border-color:#d8ff3e;
+
+    box-shadow:
+        0 0 25px rgba(216,255,62,.15),
+        0 0 50px rgba(216,255,62,.08);
+}
+
+.pricing-card.featured{
+    border:2px solid #d8ff3e;
+}
+
+.popular{
+    position:absolute;
+    top:-15px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#d8ff3e;
+    color:black;
+    padding:10px 20px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:13px;
+}
+
+.price{
+    color:#d8ff3e;
+    font-size:52px;
+    font-weight:700;
+    margin:20px 0 5px;
+
+    transition:all .3s ease;
+}
+
+.pricing-card:hover .price{
+    text-shadow:
+        0 0 15px rgba(216,255,62,.6),
+        0 0 30px rgba(216,255,62,.3);
+}
+
+.pricing-card span{
+    color:#9f9f9f;
+}
+
+.pricing-card ul{
+    list-style:none;
+    margin:30px 0;
+}
+
+.pricing-card li{
+    margin-bottom:15px;
+}
+
+.pricing-card a{
+    display:block;
+    text-align:center;
+    background:#d8ff3e;
+    color:black;
+    padding:15px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.comparison-section{
+    max-width:1400px;
+    margin:auto;
+    padding:0 80px 120px;
+}
+
+.comparison-section h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.comparison-section table{
+    width:100%;
+    border-collapse:collapse;
+    background:#111;
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.comparison-section th{
+    background:#d8ff3e;
+    color:black;
+    padding:20px;
+}
+
+.comparison-section td{
+    padding:20px;
+    border-bottom:1px solid #222;
+    text-align:center;
+}
+
+.membership-cta{
+    padding:0 80px 80px;
+}
+
+.cta-box{
+    background:#d8ff3e;
+    border-radius:25px;
+    padding:50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cta-box h2,
+.cta-box p{
+    color:black;
+}
+
+.cta-box a{
+    background:black;
+    color:white;
+    text-decoration:none;
+    padding:18px 30px;
+    border-radius:12px;
+    font-weight:700;
+}
+
+@media(max-width:992px){
+
+    .benefits-section{
+        grid-template-columns:1fr;
+    }
+
+    .pricing-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta-box{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Details | Arenangor</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/booking-details.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>A</span>RENANGOR
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="facilities.html">Facilities</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-buttons" id="navButtons">
+
+            <a href="login.html" class="login-btn">
+                Log In
+            </a>
+
+            <a href="register.html" class="signup-btn">
+                Sign Up
+            </a>
+
+        </div>
+
+    </nav>
+
+    <section class="booking-header">
+
+        <span>BOOKING DETAILS</span>
+
+        <h1>Futsal Arena A</h1>
+
+        <p>
+            Booking ID #ARN2026001
+        </p>
+
+    </section>
+
+
+    <section class="booking-details-container">
+
+        <div class="booking-info-card">
+
+            <h2>Reservation Information</h2>
+
+            <div class="info-row">
+                <span>Facility</span>
+                <strong>Futsal Arena A</strong>
+            </div>
+
+            <div class="info-row">
+                <span>Date</span>
+                <strong>15 June 2026</strong>
+            </div>
+
+            <div class="info-row">
+                <span>Time</span>
+                <strong>18:00 - 20:00</strong>
+            </div>
+
+            <div class="info-row">
+                <span>Duration</span>
+                <strong>2 Hours</strong>
+            </div>
+
+            <div class="info-row">
+                <span>Status</span>
+                <strong class="upcoming">
+                    Upcoming
+                </strong>
+            </div>
+
+            <div class="info-row">
+                <span>Total Price</span>
+                <strong>
+                    Rp 300.000
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="booking-summary-card">
+
+            <h2>Booking Summary</h2>
+
+            <div class="summary-item">
+                <span>Court Rental</span>
+                <strong>Rp 300.000</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>Membership Discount</span>
+                <strong>- Rp 30.000</strong>
+            </div>
+
+            <div class="summary-item total">
+                <span>Total Payment</span>
+                <strong>Rp 270.000</strong>
+            </div>
+
+            <button class="download-btn">
+                Download Receipt
+            </button>
+
+            <button class="cancel-btn">
+                Cancel Booking
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="timeline-section">
+
+        <div class="timeline-card">
+
+            <h2>Booking Timeline</h2>
+
+            <div class="timeline-item active">
+                Booking Created
+            </div>
+
+            <div class="timeline-item active">
+                Payment Confirmed
+            </div>
+
+            <div class="timeline-item active">
+                Reservation Approved
+            </div>
+
+            <div class="timeline-item">
+                Facility Usage
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>ARENANGOR</h3>
+
+            <p>
+                The all-in-one sports hub
+                in Jatinangor.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h4>Quick Links</h4>
+
+            <ul>
+
+                <li>Home</li>
+                <li>Facilities</li>
+                <li>Events</li>
+                <li>Membership</li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <ul>
+
+                <li>Jatinangor, Sumedang</li>
+                <li>+62 812 3456 7890</li>
+                <li>info@arenangor.com</li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h4>Follow Us</h4>
+
+            <ul>
+
+                <li>Instagram</li>
+                <li>TikTok</li>
+                <li>LinkedIn</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 Arenangor. All Rights Reserved.
+
+    </div>
+
+    </footer>
+
+    <script>
+
+const user =
+JSON.parse(localStorage.getItem("user"));
+
+if(user){
+
+    document.getElementById("navButtons").innerHTML = `
+
+        <a href="dashboard.html"
+        class="login-btn">
+
+            Dashboard
+
+        </a>
+
+        <button
+        onclick="logout()"
+        class="signup-btn">
+
+            Logout
+
+        </button>
+
+    `;
+}
+
+function logout(){
+
+    localStorage.removeItem("user");
+
+    window.location.href =
+    "index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

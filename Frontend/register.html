@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arenangor Register</title>
+
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <div class="auth-left">
+
+            <h1>Create Account</h1>
+
+            <p>
+                Join Arenangor and start booking sports facilities.
+            </p>
+
+            <form id="registerForm">
+
+                <input
+                    type="text"
+                    id="full_name"
+                    placeholder="Full Name">
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address">
+
+                <input
+                    type="text"
+                    id="phone_number"
+                    placeholder="Phone Number">
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password">
+
+                <input
+                    type="password"
+                    id="confirm_password"
+                    placeholder="Confirm Password">
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p class="auth-switch">
+                Already have an account?
+                <a href="login.html">
+                    Login
+                </a>
+            </p>
+
+        </div>
+
+        <div class="auth-right">
+
+            <h2>ARENANGOR</h2>
+
+            <p>
+                Sports Arena For The Next Generation
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+
+    document
+    .getElementById("registerForm")
+    .addEventListener("submit", async function(e){
+
+        e.preventDefault();
+
+        const full_name =
+            document.getElementById("full_name").value;
+
+        const email =
+            document.getElementById("email").value;
+
+        const phone_number =
+            document.getElementById("phone_number").value;
+
+        const password =
+            document.getElementById("password").value;
+
+        const confirm_password =
+            document.getElementById("confirm_password").value;
+
+        if(password !== confirm_password){
+
+            alert("Password tidak cocok!");
+            return;
+
+        }
+
+        try {
+
+    const response = await fetch(
+        "http://localhost:5000/api/register",
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                full_name,
+                email,
+                password,
+                phone_number
+
+            })
+
+        }
+    );
+
+    const data = await response.json();
+
+    if(data.success){
+
+    localStorage.setItem(
+        "user",
+        JSON.stringify(data.user)
+    );
+
+    alert("Registration Successful!");
+
+    window.location.href =
+    "dashboard.html";
+
+}else{
+
+        alert("Registration Failed");
+
+    }
+
+}catch(error){
+
+    console.error(error);
+
+    alert("Server Error");
+
+}
+
+    });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media screen and (max-width: 768px){
+
+    /* =====================
+       GLOBAL
+    ===================== */
+
+    body{
+        overflow-x:hidden;
+    }
+
+    section{
+        padding-left:20px !important;
+        padding-right:20px !important;
+    }
+
+    /* =====================
+       NAVBAR
+    ===================== */
+
+    .navbar{
+        padding:20px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .nav-buttons{
+        display:none;
+    }
+
+    /* =====================
+       HERO
+    ===================== */
+
+    .hero{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+
+        text-align:center;
+
+        padding:40px 20px;
+
+        height:auto !important;
+        min-height:auto !important;
+    }
+
+    .hero-left{
+        width:100%;
+        max-width:100%;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .hero-right{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:38px;
+        line-height:1.1;
+        margin-bottom:20px;
+        text-align:center;
+    }
+
+    .hero p{
+        font-size:15px;
+        line-height:1.7;
+
+        max-width:320px;
+
+        margin:0 auto 25px;
+        text-align:center;
+    }
+
+    .hero-buttons{
+        display:flex;
+        justify-content:center;
+        gap:12px;
+        flex-wrap:wrap;
+    }
+
+    .hero-buttons a,
+    .hero-buttons button{
+        padding:12px 20px;
+        font-size:14px;
+    }
+
+    /* =====================
+       STATS
+    ===================== */
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+
+        padding:0 20px;
+    }
+
+    .stat-card{
+        padding:18px;
+    }
+
+    .stat-card h2{
+        font-size:34px;
+    }
+
+    .stat-card p{
+        font-size:13px;
+    }
+
+    /* =====================
+       SECTION HEADERS
+    ===================== */
+
+    .section-header{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .section-header h2{
+        font-size:30px;
+    }
+
+    /* =====================
+       FACILITIES
+    ===================== */
+
+    .facilities-grid{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+    }
+
+    .facility-card img{
+        height:120px;
+        object-fit:cover;
+    }
+
+    .facility-content{
+        padding:15px;
+    }
+
+    .facility-content h3{
+        font-size:18px;
+    }
+
+    .facility-content p{
+        font-size:13px;
+    }
+
+    .facility-content span{
+        font-size:13px;
+    }
+
+    /* =====================
+       WHY CHOOSE US
+    ===================== */
+
+    .why-grid{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+    }
+
+    .why-card{
+        padding:20px;
+    }
+
+    .why-card i{
+        font-size:22px;
+    }
+
+    .why-card h3{
+        font-size:15px;
+        margin-top:10px;
+    }
+
+    .why-card p{
+        font-size:12px;
+        line-height:1.5;
+    }
+
+    /* =====================
+       EVENTS
+    ===================== */
+
+    .event-grid{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+    }
+
+    .event-card img{
+        height:130px;
+        object-fit:cover;
+    }
+
+    .event-content{
+        padding:15px;
+    }
+
+    .event-content h3{
+        font-size:16px;
+    }
+
+    .event-content p{
+        font-size:13px;
+    }
+
+    /* =====================
+       MEMBERSHIP
+    ===================== */
+
+    .membership-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .pricing-card{
+        padding:30px;
+    }
+
+    .pricing-card h3{
+        font-size:24px;
+    }
+
+    .price{
+        font-size:42px;
+    }
+
+    /* =====================
+       CTA
+    ===================== */
+
+    .cta-content,
+    .cta-box{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:20px;
+    }
+
+    /* =====================
+       FOOTER
+    ===================== */
+
+    .footer-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:40px;
+
+        text-align:center;
+    }
+
+}

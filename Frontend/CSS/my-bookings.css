@@ -1,0 +1,185 @@
+.page-header{
+    max-width:1400px;
+    margin:auto;
+
+    padding:100px 80px 50px;
+}
+
+.page-header span{
+    color:#d8ff3e;
+    font-weight:700;
+}
+
+.page-header h1{
+    font-size:60px;
+    margin:15px 0;
+}
+
+.page-header p{
+    color:#9f9f9f;
+}
+
+.booking-summary{
+    max-width:1400px;
+    margin:auto;
+
+    padding:0 80px 50px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.summary-card{
+    background:#111;
+    border:1px solid #222;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.3s;
+}
+
+.summary-card:hover{
+    transform:translateY(-8px);
+    border-color:#d8ff3e;
+}
+
+.summary-card i{
+    color:#d8ff3e;
+    font-size:28px;
+
+    margin-bottom:15px;
+}
+
+.summary-card h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.summary-card p{
+    color:#9f9f9f;
+}
+
+.bookings-container{
+    max-width:1400px;
+    margin:auto;
+
+    padding:0 80px 100px;
+}
+
+.bookings-card{
+    background:#111;
+    border:1px solid #222;
+
+    border-radius:25px;
+
+    padding:35px;
+}
+
+.table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:30px;
+}
+
+.booking-filter{
+    display:flex;
+    gap:10px;
+}
+
+.booking-filter button{
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#1a1a1a;
+    color:white;
+
+    cursor:pointer;
+}
+
+.booking-filter .active{
+    background:#d8ff3e;
+    color:black;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    text-align:left;
+    padding:18px;
+    border-bottom:1px solid #222;
+}
+
+td{
+    padding:18px;
+    border-bottom:1px solid #222;
+}
+
+.status{
+    padding:8px 14px;
+    border-radius:999px;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+.upcoming{
+    background:rgba(216,255,62,.15);
+    color:#d8ff3e;
+}
+
+.completed{
+    background:rgba(255,255,255,.08);
+    color:#d0d0d0;
+}
+
+.cancelled{
+    background:rgba(255,0,0,.12);
+    color:#ff6b6b;
+}
+
+td a{
+    color:#d8ff3e;
+    text-decoration:none;
+    font-weight:600;
+}
+
+@media(max-width:992px){
+
+    .page-header{
+        padding:80px 20px 40px;
+    }
+
+    .page-header h1{
+        font-size:42px;
+    }
+
+    .booking-summary{
+        grid-template-columns:1fr;
+        padding:0 20px 40px;
+    }
+
+    .bookings-container{
+        padding:0 20px 80px;
+        overflow-x:auto;
+    }
+
+    .table-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+}
