@@ -5,14 +5,17 @@ const db = require("../config/db");
 
 router.get("/facilities",(req,res)=>{
 
-    const sql =
-    "SELECT * FROM facilities";
+    const sql = "SELECT * FROM facilities";
 
     db.query(sql,(err,result)=>{
 
         if(err){
+
+            console.log("FACILITY ERROR:", err);
+
             return res.json({
-                success:false
+                success:false,
+                error: err.message
             });
         }
 
