@@ -103,7 +103,7 @@ async function loadEvents(){
 
     const response =
     await fetch(
-        "http://localhost:5000/api/events"
+        "/api/events"
     );
 
     const data =
@@ -158,7 +158,7 @@ async function loadEvents(){
 async function addEvent(){
 
     await fetch(
-        "http://localhost:5000/api/events",
+        "/api/events",
         {
 
             method:"POST",
@@ -196,7 +196,7 @@ async function addEvent(){
 async function deleteEvent(id){
 
     await fetch(
-        `http://localhost:5000/api/events/${id}`,
+        `/api/events/${id}`,
         {
             method:"DELETE"
         }
@@ -214,7 +214,7 @@ async function editEvent(id){
     if(!newName) return;
 
     await fetch(
-        `http://localhost:5000/api/events/${id}`,
+        `/api/events/${id}`,
         {
 
             method:"PUT",

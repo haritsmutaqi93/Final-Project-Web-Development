@@ -87,7 +87,7 @@ async function loadUsers(){
 
     const response =
     await fetch(
-        "http://localhost:5000/api/users"
+        "/api/users"
     );
 
     const users =
@@ -185,7 +185,7 @@ async function addUser(){
 
     await fetch(
 
-        "http://localhost:5000/api/users",
+        "/api/users",
 
         {
 
@@ -227,7 +227,7 @@ async function editUser(id){
 
     await fetch(
 
-        `http://localhost:5000/api/users/${id}`,
+        `/api/users/${id}`,
 
         {
 
@@ -256,7 +256,7 @@ async function deleteUser(id){
 
     await fetch(
 
-        `http://localhost:5000/api/users/${id}`,
+        `/api/users/${id}`,
 
         {
 

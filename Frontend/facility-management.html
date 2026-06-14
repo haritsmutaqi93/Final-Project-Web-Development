@@ -99,7 +99,7 @@ loadFacilities();
 function loadFacilities(){
 
 fetch(
-"http://localhost:5000/api/facilities"
+"/api/facilities"
 )
 .then(res=>res.json())
 .then(data=>{
@@ -147,7 +147,7 @@ document.getElementById(
 async function addFacility(){
 
 await fetch(
-"http://localhost:5000/api/facilities",
+"/api/facilities",
 {
 method:"POST",
 
@@ -182,7 +182,7 @@ return;
 }
 
 await fetch(
-`http://localhost:5000/api/facilities/${id}`,
+`/api/facilities/${id}`,
 {
 method:"DELETE"
 }

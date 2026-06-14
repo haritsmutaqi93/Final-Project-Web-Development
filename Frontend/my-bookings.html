@@ -217,7 +217,7 @@ async function loadBookings(){
 
     const response =
     await fetch(
-        `http://localhost:5000/api/my-bookings/${user.user_id}`
+        `/api/my-bookings/${user.user_id}`
     );
 
     const bookings =

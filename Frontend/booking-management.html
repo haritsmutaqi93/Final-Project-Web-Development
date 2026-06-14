@@ -87,7 +87,7 @@ async function loadBookings(){
 
     const response =
     await fetch(
-        "http://localhost:5000/api/bookings"
+        "/api/bookings"
     );
 
     const bookings =
@@ -173,7 +173,7 @@ async function updateBooking(
 
     await fetch(
 
-        `http://localhost:5000/api/bookings/${bookingId}`,
+        `/api/bookings/${bookingId}`,
 
         {
 
